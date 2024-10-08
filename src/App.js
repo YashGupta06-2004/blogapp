@@ -15,7 +15,7 @@ function App() {
     const headers = { "Access-Control-Allow-Origin": "*" };
 axios.defaults.withCredentials = true;
    useEffect(() => {
-       axios.get("https://blogbackend-bt2a.onrender.com/",{headers})
+       axios.get("https://blog-backend-a8su.onrender.com/",{headers})
        .then(user => {
         setUser(user.data)
        })

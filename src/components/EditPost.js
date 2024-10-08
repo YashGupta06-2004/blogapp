@@ -16,7 +16,7 @@ const EditPost = () => {
         e.preventDefault();
         try {
             const data = { title, desc };
-            const response = await axios.put(`https://blogbackend-bt2a.onrender.com/editpost/${id}`, data,{headers});
+            const response = await axios.put(`https://blog-backend-a8su.onrender.com/editpost/${id}`, data,{headers});
             console.log(response.data); // Check the updated data
             navigate("/"); // Redirect after successful update
         } catch (err) {
@@ -27,7 +27,7 @@ const EditPost = () => {
     useEffect(() => {
         const fetchPost = async () => {
             try {
-                const response = await axios.get(`https://blogbackend-bt2a.onrender.com/getpostbyid/${id}`);
+                const response = await axios.get(`https://blog-backend-a8su.onrender.com/getpostbyid/${id}`);
                 setTitle(response.data.title);
                 setDesc(response.data.desc);
             } catch (err) {

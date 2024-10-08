@@ -27,7 +27,7 @@ const Create = () => {
         formData.append('file', file);
         console.log(user.email)
         try {
-            const response = await axios.post("https://blogbackend-bt2a.onrender.com/create", formData, { 
+            const response = await axios.post("https://blog-backend-a8su.onrender.com/create", formData, { 
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     "Accept": "application/json"

@@ -13,7 +13,7 @@ const Post = () => {
     useEffect(() => {
       const fetchPost = async () => {
           try {
-              const response = await axios.get(`https://blogbackend-bt2a.onrender.com/getpostbyid/${id}`,{headers});
+              const response = await axios.get(`https://blog-backend-a8su.onrender.com/getpostbyid/${id}`,{headers});
               setPost(response.data);
           } catch (err) {
               console.log(err);
@@ -23,7 +23,7 @@ const Post = () => {
   }, [id]);
   const handelDelete = async (id) => {
     try {
-        const response = await axios.delete(`https://blogbackend-bt2a.onrender.com/deletepost/${id}`);
+        const response = await axios.delete(`https://blog-backend-a8su.onrender.com/deletepost/${id}`);
         console.log("Successfully deleted:", response.data); // Log success message
         navigate("/"); // Navigate after successful deletion
     } catch (err) {
@@ -37,7 +37,7 @@ const Post = () => {
     <>
     <div style={{border:'1px solid #ccc',marginLeft:'1%',display:'flex'}}>
        <div>
-        <img src={`https://blogbackend-bt2a.onrender.com/Images/${post.file}`} style={{maxHeight:'159px'}}  alt="" />
+        <img src={`https://blog-backend-a8su.onrender.com/Images/${post.file}`} style={{maxHeight:'159px'}}  alt="" />
        </div>
        <div style={{padding:'5px'}}>
         <h5>{post.title}</h5>

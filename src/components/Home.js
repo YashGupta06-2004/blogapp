@@ -9,7 +9,7 @@ const Home = () => {
   const user = useContext(userContext);
   const headers = { "Access-Control-Allow-Origin": "*" };
   useEffect(() => {
-    axios.get("https://blogbackend-bt2a.onrender.com/getposts",{headers})
+    axios.get("https://blog-backend-a8su.onrender.com/getposts",{headers})
       .then(posts => {
         setPosts(posts.data);
       })
@@ -25,7 +25,7 @@ const Home = () => {
             user.email === post.email ? 
             <div key={post.id} style={{border:'1px solid #ccc',margin:'1%',display:'flex'}}>
             <div style={{padding:'10px'}}>
-              <img src={`https://blogbackend-bt2a.onrender.com/Images/${post.file}`} style={{maxHeight:'159px'}} alt="" />
+              <img src={`https://blog-backend-a8su.onrender.com/Images/${post.file}`} style={{maxHeight:'159px'}} alt="" />
             </div>
             <div style={{padding:'5px'}}>
               <h5>{post.title}</h5>
