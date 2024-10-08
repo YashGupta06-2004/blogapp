@@ -8,11 +8,12 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const headers = { "Access-Control-Allow-Origin": "*" };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://blogbackend-bt2a.onrender.com/api/auth/register', { username, email, password });
+            const response = await axios.post('https://blogbackend-bt2a.onrender.com/api/auth/register', { username, email, password },{headers});
             console.log(response.data); // Log the response data
             navigate("/login");
         } catch (err) {

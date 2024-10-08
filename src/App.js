@@ -1,4 +1,4 @@
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter, Routes, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/login';
@@ -12,10 +12,10 @@ import EditPost from './components/EditPost';
 export const userContext = createContext();
 function App() {
     const [user,setUser] = useState({})
-    
+    const headers = { "Access-Control-Allow-Origin": "*" };
 axios.defaults.withCredentials = true;
    useEffect(() => {
-       axios.get("https://blogbackend-bt2a.onrender.com/")
+       axios.get("https://blogbackend-bt2a.onrender.com/",{headers})
        .then(user => {
         setUser(user.data)
        })
@@ -24,17 +24,17 @@ axios.defaults.withCredentials = true;
 
     return (
         <userContext.Provider value={user}>
-        <Router>
+        <HashRouter>
         <Navbar/>
-            <Switch>
+            <Routes>
                 <Route exact path='/' basename="/" element={<Home/>}/>
                 <Route path="/register" basename="/register" element={<Register/>} />
                 <Route path="/login" basename="/login" element={<Login/>} />
                 <Route path="/create" basename="/create" element={<Create/>} />
                 <Route path="/post/:id" basename="/post/:id" element={<Post/>} />
                 <Route path="/editpost/:id" basename="/editpost/:id" element={<EditPost/>} />
-            </Switch>
-        </Router>
+            </Routes>
+        </HashRouter>
         </userContext.Provider>
     );
     

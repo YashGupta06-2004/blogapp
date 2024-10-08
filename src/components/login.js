@@ -11,11 +11,12 @@ const Login = () => {
     //const [errorMessage, setErrorMessage] = useState('');
     //const [loading, setLoading] = useState(false);
     const navigate = useNavigate(); // Corrected the spelling
+    const headers = { "Access-Control-Allow-Origin": "*" };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://blogbackend-bt2a.onrender.com/api/auth/login', { username, email, password });
+            const response = await axios.post('https://blogbackend-bt2a.onrender.com/api/auth/login', { username, email, password },{headers});
             localStorage.setItem('token', response.data.token);
             console.log(response.data); // Log the response data
             navigate("/");

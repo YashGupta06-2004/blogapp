@@ -7,8 +7,9 @@ import { userContext } from '../App';
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const user = useContext(userContext);
+  const headers = { "Access-Control-Allow-Origin": "*" };
   useEffect(() => {
-    axios.get("https://blogbackend-bt2a.onrender.com/getposts")
+    axios.get("https://blogbackend-bt2a.onrender.com/getposts",{headers})
       .then(posts => {
         setPosts(posts.data);
       })

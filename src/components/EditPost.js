@@ -10,12 +10,13 @@ const EditPost = () => {
     const { id } = useParams();
     const user = useContext(userContext);
     const navigate = useNavigate();
+    const headers = { "Access-Control-Allow-Origin": "*" };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const data = { title, desc };
-            const response = await axios.put(`https://blogbackend-bt2a.onrender.com/editpost/${id}`, data);
+            const response = await axios.put(`https://blogbackend-bt2a.onrender.com/editpost/${id}`, data,{headers});
             console.log(response.data); // Check the updated data
             navigate("/"); // Redirect after successful update
         } catch (err) {

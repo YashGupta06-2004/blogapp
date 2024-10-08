@@ -8,11 +8,12 @@ const Post = () => {
     const [post,setPost] = useState({})
     const navigate = useNavigate();
     const user = useContext(userContext)
+    const headers = { "Access-Control-Allow-Origin": "*" };
 
     useEffect(() => {
       const fetchPost = async () => {
           try {
-              const response = await axios.get(`https://blogbackend-bt2a.onrender.com/getpostbyid/${id}`);
+              const response = await axios.get(`https://blogbackend-bt2a.onrender.com/getpostbyid/${id}`,{headers});
               setPost(response.data);
           } catch (err) {
               console.log(err);

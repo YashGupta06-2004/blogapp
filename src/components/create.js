@@ -10,6 +10,7 @@ const Create = () => {
     //const [email , setEmail] = useState("");
     const [file, setFile] = useState("");
     const navigate = useNavigate();
+    const headers = { "Access-Control-Allow-Origin": "*" };
     const user = useContext(userContext);
     console.log(user);
     if (!user.email) {
@@ -31,7 +32,7 @@ const Create = () => {
                     'Content-Type': 'multipart/form-data',
                     "Accept": "application/json"
                 }
-            });
+            },{headers});
             console.log(response.data);
             navigate("/"); // Move this inside the try block to ensure it runs after successful response
         } catch (err) {
